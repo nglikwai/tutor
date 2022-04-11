@@ -28,7 +28,7 @@ const ResultPage = () => {
             <div className='right-bar'>
                 <h3>你的搜尋結果</h3>
 
-                {isFetching ? <img src='/Spinner.svg' /> : tutors.map(tutor => (
+                {isFetching ? 'loading' : tutors.map(tutor => (
                     <SearchResult key={tutor._id} tutor={tutor} />
                 ))}
 
