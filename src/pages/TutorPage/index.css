@@ -1,0 +1,9 @@
+.point{
+    width:50px;
+    margin:0px 80px 0px 60px;
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+}
