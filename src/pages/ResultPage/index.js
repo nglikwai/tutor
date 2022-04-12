@@ -15,10 +15,12 @@ const ResultPage = (props) => {
     const isFetching = useSelector(state => state.tutors.list.isFetching)
     const selected = useSelector(state => state.select)
 
-    useEffect(() => [tutors])
-
     useEffect(() => {
     }, [])
+
+    if (!tutors) {
+        return 'loading'
+    }
 
     return (
         <div className="container-box">
