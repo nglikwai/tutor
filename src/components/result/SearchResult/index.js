@@ -7,7 +7,7 @@ import _ from 'lodash'
 const SearchResult = ({ tutor }) => {
 
     if (!tutor || _.isEmpty(tutor)) return (
-        <div>loading</div>
+        <div><img src='%public/Spinner.svg' /></div>
     );
 
     return (

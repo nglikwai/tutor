@@ -19,16 +19,17 @@ const ResultPage = (props) => {
     }, [])
 
     if (!tutors) {
-        return 'loading'
+        return <img src='Spinner.svg' />
     }
 
     return (
         <div className="container-box">
             <UpperBar />
-            <div className='right-bar'>
-                <h3>你的搜尋結果</h3>
 
-                {isFetching ? 'loading' : tutors.map(tutor => (
+            <div>
+                <h3>你的搜尋導師</h3>
+
+                {isFetching ? <img src='Spinner.svg' /> : tutors.map(tutor => (
                     <SearchResult key={tutor._id} tutor={tutor} />
                 ))}
 
