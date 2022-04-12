@@ -79,7 +79,7 @@ const UpperBar = (props) => {
                 <label className="gender">女</label>
             </div>
 
-            <button className="filter">更多篩選</button>
+            <FilterButton><i class="fa-solid fa-bars"></i></FilterButton>
 
             <Search onClick={() => onSearch()}><i class="fa-solid fa-magnifying-glass"></i></Search>
         </Wrapper>
@@ -99,7 +99,24 @@ const Wrapper = styled.div`
 `;
 
 const Search = styled.button`
+&:hover {
+    background-color: #ff7070;
+}
 background-color:#cc0000;
 color:white;
 border-radiu:5px;
+transition:0.4s;
 `;
+
+const FilterButton = styled.button`
+    &:hover {
+        border: 1px #cc0000 solid;
+        color:#cc0000;
+    }
+    background-color: transparent;
+    color:#ccc;
+    border: 1px #aaa solid;
+    font-size: 14px;
+    border-radius: 5px;
+    transition:0.7s;
+`

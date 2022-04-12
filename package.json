@@ -7,9 +7,13 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.1",
+    "connect-mongo": "^4.6.0",
+    "expres": "^0.0.5",
+    "express": "^4.17.3",
     "faker": "^5.5.3",
     "flv.js": "^1.6.2",
     "lodash": "^4.17.21",
+    "mongoose": "^6.2.10",
     "node-media-server": "^2.3.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -22,11 +26,9 @@
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
-  
   "resolutions": {
-      "styled-components": "^5"
-    },
-  
+    "styled-components": "^5"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

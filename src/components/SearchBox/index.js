@@ -16,7 +16,7 @@ const SearchBox = (props) => {
                 options={['中文', 'eng', 'math', 'ls', 'phy', 'chem', 'bio', 'econ', 'bafs', 'geo', 'history', '中國歷史']}
             />
 
-            <button onClick={() => history.push(`/result`)}>搜尋 <i class="fa-regular fa-magnifying-glass"></i></button>
+            <button onClick={() => history.push(`/result`)}>搜尋 <i class="fa-solid fa-magnifying-glass"></i></button>
         </div >
     );
 

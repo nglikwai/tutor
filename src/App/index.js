@@ -8,6 +8,7 @@ import ResultPage from '../pages/ResultPage'
 import TutorPage from '../pages/TutorPage';
 
 
+
 const App = () => {
   return (
     <div className="container">
@@ -25,5 +26,6 @@ const App = () => {
     </div>
   );
 };
+
 
 export default App;
