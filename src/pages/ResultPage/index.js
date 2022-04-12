@@ -3,8 +3,7 @@ import './index.css';
 import SearchResult from "../../components/result/SearchResult";
 import UpperBar from "../../components/result/UpperBar";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTutorsRequest, fetchTutorsWithCriteria, fetchTutorsWithLocation, fetchTutorsWithSubject } from '../../redux/actions'
-
+import styled from "styled-components";
 
 
 const ResultPage = (props) => {
@@ -26,7 +25,7 @@ const ResultPage = (props) => {
         <div className="container-box">
             <UpperBar />
 
-            <div>
+            <Wrapper>
                 <h3>你的搜尋導師</h3>
 
                 {isFetching ? <img src='Spinner.svg' /> : tutors.map(tutor => (
@@ -35,9 +34,13 @@ const ResultPage = (props) => {
 
 
 
-            </div>
+            </Wrapper>
         </div>
     )
 }
+
+
+const Wrapper = styled.div`
+`
 
 export default ResultPage

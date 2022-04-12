@@ -12,6 +12,7 @@ const SearchResult = ({ tutor }) => {
 
     return (
         <div onClick={() => history.push(`/tutor/${tutor._id}`)}>
+
             <div className="item">
                 <div className="tutor-intro" >
                     <div className="avator" />
