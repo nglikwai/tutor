@@ -1,0 +1,11 @@
+body{
+    background-color:#fffcf8;
+    padding:0;
+    margin:0;
+    font-family: “Helvetica Neue”, Helvetica, Arial, “PingFang HK”, 微软雅黑, “Microsoft YaHei”, 华文细黑, STHeiti, sans-serif;   
+}
+
+.container{
+    width:100%;
+
+}
