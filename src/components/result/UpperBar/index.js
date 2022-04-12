@@ -81,7 +81,7 @@ const UpperBar = (props) => {
 
             <button className="filter">更多篩選</button>
 
-            <Search onClick={() => onSearch()}>Search</Search>
+            <Search onClick={() => onSearch()}><i class="fa-solid fa-magnifying-glass"></i></Search>
         </Wrapper>
     )
 }
