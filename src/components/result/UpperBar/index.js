@@ -13,11 +13,6 @@ const UpperBar = (props) => {
     const [price, setPrice] = useState(180);
 
 
-    useEffect(() => {
-        history.push('/result')
-        onSearch()
-    }, [])
-
     const dispatch = useDispatch()
     const tutors = useSelector(state => state.tutors.list.tutors)
     const selected = useSelector(state => state.select)
@@ -53,6 +48,7 @@ const UpperBar = (props) => {
 
     }
     const onSearch = () => {
+        history.push('/result')
         let query = '';
         selected['地點'].forEach(value => query = query + 'location' + '=' + value + '&');
         selected['科目'].forEach(value => query = query + 'subject' + '=' + value + '&');
