@@ -9,6 +9,8 @@ export const EDIT_STREAM = 'EDIT_STREAM';
 
 
 export const SELECT = 'SELECT';
+export const GENDER_SELECT = 'GENDER_SELECT';
+export const PRICE_SELECT = 'PRICE_SELECT';
 export const FETCH_TUTORS = 'FETCH_TUTORS';
 export const FETCH_TUTOR = 'FETCH_TUTOR';
 export const FETCH_TUTORS_REQUEST = 'FETCH_TUTORS_REQUEST';

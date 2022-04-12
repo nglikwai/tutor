@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { signIn, signOut } from "redux/actions";
 import './index.css'
+import styled from "styled-components";
 
 
 
@@ -43,10 +44,13 @@ class GoogleAuth extends React.Component {
       return null;
     } else if (this.props.isSignedIn) {
       return (
-        <button onClick={this.onSignOutClick} className="loginbtn">
-          <i className="google icon" />
-          登出
-        </button>
+        <RightWrapper>
+          <button>{this.auth.currentUser.get().getBasicProfile().iW}</button>
+          <button onClick={this.onSignOutClick}>
+            <i className="google icon" />
+            登出
+          </button>
+        </RightWrapper>
       );
     } else {
       return (
@@ -68,3 +72,12 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, { signIn, signOut })(GoogleAuth);
+
+
+const RightWrapper = styled.div`
+  position: absolute;
+  right: 20px;
+  top:0;
+  padding:20px;
+`
+

@@ -5,8 +5,6 @@ import styled from 'styled-components'
 
 
 const Suggestion = (props) => {
-
-    console.log(props)
     return (
         <Wrapper>
             <h3>{props.category}</h3>

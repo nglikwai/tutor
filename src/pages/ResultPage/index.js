@@ -3,23 +3,21 @@ import './index.css';
 import SearchResult from "../../components/result/SearchResult";
 import UpperBar from "../../components/result/UpperBar";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTutorsRequest } from '../../redux/actions'
+import { fetchTutorsRequest, fetchTutorsWithCriteria, fetchTutorsWithLocation, fetchTutorsWithSubject } from '../../redux/actions'
 
 
 
-const ResultPage = () => {
+const ResultPage = (props) => {
 
     const dispatch = useDispatch()
 
     const tutors = useSelector(state => state.tutors.list.tutors)
     const isFetching = useSelector(state => state.tutors.list.isFetching)
+    const selected = useSelector(state => state.select)
+
+    useEffect(() => [tutors])
 
     useEffect(() => {
-        console.log(tutors[0]?.name ?? '')
-    }, [tutors])
-
-    useEffect(() => {
-        dispatch(fetchTutorsRequest())
     }, [])
 
     return (

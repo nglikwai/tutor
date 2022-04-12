@@ -10,23 +10,22 @@ const StreamCreate = () => {
 
     const dispatch = useDispatch()
     const tutors = useSelector(state => state.tutors.list.tutors)
+    const selected = useSelector(state => state.select)
 
-    useEffect(() => {
-        console.log(tutors[0]?.name ?? '')
-    }, [tutors])
+    useEffect(() => [tutors])
+
     useEffect(() => {
         dispatch(fetchTutorsRequest())
     }, [])
 
 
-    console.log(tutors)
     if (!tutors) return null;
 
     return (
         <div className="container-box">
             <div className="main-box">
                 <h2>尋找補習老師</h2>
-                <SearchBox />
+                <SearchBox selected={selected} />
             </div>
             <Suggestion tutors={tutors} category='熱門導師' />
             <Suggestion tutors={tutors} category='星級導師' />

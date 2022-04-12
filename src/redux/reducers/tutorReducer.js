@@ -1,5 +1,3 @@
-import { fa } from "faker/lib/locales";
-
 export default (state = {
     list: {
         isFetching: false,

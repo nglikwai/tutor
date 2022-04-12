@@ -3,25 +3,23 @@ import './index.css';
 import history from "../../history";
 import Selection from "../Selection";
 
-class SearchBox extends React.Component {
+const SearchBox = (props) => {
 
+    return (
+        <div className="form-box">
+            <Selection
+                label='地點'
+                options={['中西區', '東區', '南區', '灣仔', '九龍城', '觀塘', '深水埗', '黃大仙', '油尖旺', '離島', '葵青', '北區', '西貢', '沙田', '大埔', '荃灣', '屯門', '元朗']}
+            />
+            <Selection
+                label='科目'
+                options={['中文', 'eng', 'math', 'ls', 'phy', 'chem', 'bio', 'econ', 'bafs', 'geo', 'history', '中國歷史']}
+            />
 
-    render() {
-        return (
-            <div className="form-box">
-                <Selection
-                    label='地點'
-                    options={['中西區', '東區', '南區', '灣仔', '九龍城', '觀塘', '深水埗', '黃大仙', '油尖旺', '離島', '葵青', '北區', '西貢', '沙田', '大埔', '荃灣', '屯門', '元朗',]}
-                />
-                <Selection
-                    label='科目'
-                    options={['中文', '數學', '化學']}
-                />
+            <button onClick={() => history.push(`/result`)}>搜尋</button>
+        </div >
+    );
 
-                <button onClick={() => history.push('/result')}>搜尋</button>
-            </div >
-        );
-    }
 }
 
 

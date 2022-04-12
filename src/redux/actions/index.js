@@ -11,9 +11,12 @@ import {
   DELETE_STREAM,
 
   SELECT,
+  GENDER_SELECT,
+  PRICE_SELECT,
   FETCH_TUTORS_SUCCESS,
   FETCH_TUTORS_REQUEST,
   FETCH_TUTOR,
+
 } from './types'
 
 
@@ -21,9 +24,25 @@ import {
 export const select = (label, value) => {
   return {
     type: SELECT,
-    payload: { [label]: value }
+    payload: { [label]: [value] }
   };
 };
+
+export const genderSelect = (value) => {
+  return {
+    type: GENDER_SELECT,
+    payload: [value]
+  };
+};
+
+export const priceSelect = (value) => {
+  return {
+    type: PRICE_SELECT,
+    payload: value
+  };
+};
+
+
 
 export const fetchTutorsRequest = () => async dispatch => {
   dispatch({ type: FETCH_TUTORS_REQUEST })
@@ -38,11 +57,27 @@ export const fetchTutor = (tutorId) => async dispatch => {
 }
 
 
-// export const fetchTutorRequest = (tutorId) => async dispatch => {
-//   const response = await tutors.get(`/tutor/${tutorId}`);
+export const fetchTutorsWithCriteria = (query) => async dispatch => {
+  dispatch({ type: FETCH_TUTORS_REQUEST });
+  const response = await tutors.get(`/tutor/search?${query}`);
+  dispatch({ type: FETCH_TUTORS_SUCCESS, payload: response.data })
+}
 
-//   dispatch({ type: FETCH_TUTORS_REQUEST, payload: response.data })
-// }
+export const fetchTutorsWithLocation = (location) => async dispatch => {
+  dispatch({ type: FETCH_TUTORS_REQUEST });
+  const response = await tutors.get(`/tutor/search?location=${location}`);
+  dispatch({ type: FETCH_TUTORS_SUCCESS, payload: response.data })
+}
+
+
+export const fetchTutorsWithSubject = (subject) => async dispatch => {
+  dispatch({ type: FETCH_TUTORS_REQUEST });
+  const response = await tutors.get(`/tutor/search?subject=${subject}`);
+  dispatch({ type: FETCH_TUTORS_SUCCESS, payload: response.data })
+}
+
+
+
 
 
 

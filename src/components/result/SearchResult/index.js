@@ -22,7 +22,8 @@ const SearchResult = ({ tutor }) => {
                 </div>
 
                 <div className="details">
-                    <Tags tags={tutor.teachingSubjects} />
+                    <Tags tags={tutor.teachingSubjects} location={tutor.location} />
+
                     <div className="fee">
                         {tutor.teachingSubjectsPrice.map((price, i) => (
                             <li className="list" key={price}>F. {i + 4} : {price}</li>
