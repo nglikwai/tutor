@@ -13,6 +13,7 @@ import {
   SELECT,
   GENDER_SELECT,
   PRICE_SELECT,
+  FETCH_USER,
   FETCH_TUTORS_SUCCESS,
   FETCH_TUTORS_REQUEST,
   FETCH_TUTOR,
@@ -41,6 +42,13 @@ export const priceSelect = (value) => {
     payload: value
   };
 };
+
+
+export const fetchUser = (email) => async dispatch => {
+  const response = await tutors.get(`/apis/user?email=${email}`);
+
+  dispatch({ type: FETCH_USER, payload: response.data })
+}
 
 
 

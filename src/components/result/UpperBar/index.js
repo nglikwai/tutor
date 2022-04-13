@@ -79,9 +79,9 @@ const UpperBar = (props) => {
                 <label className="gender">女</label>
             </div>
 
-            <FilterButton><i class="fa-solid fa-bars"></i></FilterButton>
+            <FilterButton><i className="fa-solid fa-bars"></i></FilterButton>
 
-            <Search onClick={() => onSearch()}><i class="fa-solid fa-magnifying-glass"></i></Search>
+            <Search onClick={() => onSearch()}><i className="fa-solid fa-magnifying-glass"></i></Search>
         </Wrapper>
     )
 }

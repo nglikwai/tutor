@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { signIn, signOut } from "redux/actions";
+import { signIn, signOut, fetchUser } from "redux/actions";
 import './index.css'
 import styled from "styled-components";
 
@@ -19,6 +19,8 @@ class GoogleAuth extends React.Component {
           this.auth = window.gapi.auth2.getAuthInstance();
           this.onAuthChange(this.auth.isSignedIn.get())
           this.auth.isSignedIn.listen(this.onAuthChange);
+          this.useremail = (this.auth.currentUser.get().getBasicProfile().getEmail());
+          this.props.fetchUser(this.useremail)
         });
     });
   }
@@ -42,10 +44,19 @@ class GoogleAuth extends React.Component {
   renderAuthButton() {
     if (this.props.isSignedIn === null) {
       return null;
-    } else if (this.props.isSignedIn) {
+    } else if (!this.props.user) {
       return (
         <RightWrapper>
-          <button>{this.auth.currentUser.get().getBasicProfile().iW}</button>
+          <div onClick={this.onSignOutClick}>此電郵並未注冊，請前後 <a href='https://www.dse00.com/users/register'>DSE00 Register</a>注冊</div>
+
+        </RightWrapper>
+      )
+    }
+    else if (this.props.isSignedIn) {
+      return (
+        <RightWrapper>
+          <button><i className="fa-solid fa-coins"></i> {this.props.user.coin}</button>
+          <button>{(this.props.user.username).toUpperCase()}</button>
           <button onClick={this.onSignOutClick}>
             <i className="google icon" />
             登出
@@ -63,15 +74,19 @@ class GoogleAuth extends React.Component {
   }
 
   render() {
+
     return <>{this.renderAuthButton()}</>;
   }
 }
 
 const mapStateToProps = (state) => {
-  return { isSignedIn: state.auth.isSignedIn };
+  return {
+    isSignedIn: state.auth.isSignedIn,
+    user: state.user[0]
+  };
 };
 
-export default connect(mapStateToProps, { signIn, signOut })(GoogleAuth);
+export default connect(mapStateToProps, { signIn, signOut, fetchUser })(GoogleAuth);
 
 
 const RightWrapper = styled.div`
